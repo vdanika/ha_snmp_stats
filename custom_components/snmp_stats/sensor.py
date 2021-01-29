@@ -220,17 +220,13 @@ class SnmpStatisticsMonitor:
         if_data=self.current_if_data
         its = __class__.get_bulk_auto(self.target_ip, [
             '1.3.6.1.2.1.2.2.1.2',#v1, ifDescr
-            #'1.3.6.1.2.1.2.2.1.16',#v1, ifOutOctets
-            #'1.3.6.1.2.1.2.2.1.10',#v1, ifInOctets
-            '1.3.6.1.2.1.31.1.1.1.1',#v2, ifName
-            '1.3.6.1.2.1.31.1.1.1.18',#v2, ifAlias
-            '1.3.6.1.2.1.31.1.1.1.6', #v2, ifHCInOctets
-            '1.3.6.1.2.1.31.1.1.1.10', #v2, ifHCOutOctets
-        ], hlapi.CommunityData('public', mpModel=1), 
+            '1.3.6.1.2.1.2.2.1.16',#v1, ifOutOctets
+            '1.3.6.1.2.1.2.2.1.10',#v1, ifInOctets
+        ], hlapi.CommunityData('public', mpModel=1),
             '1.3.6.1.2.1.2.1.0' #v1, ifCount
         )
 
-        
+
 
         for k in if_data:
             if_data[k]['rx_octets_prev']=if_data[k]['rx_octets']
